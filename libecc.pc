@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: libecc
+Description: Library for elliptic curves cryptography
+URL: https://github.com/ANSSI-FR/libecc
+Version: @PACKAGE_VERSION@
+Cflags: -I${includedir}
+Libs: -L${libdir} -llibecc
+Libs.private: @LIBECC_LIBS@
