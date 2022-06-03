@@ -43,6 +43,8 @@ EXT_DEPS_SRC = $(wildcard src/external_deps/*.c)
 EXT_DEPS_OBJECTS = $(patsubst %.c, %.o, $(EXT_DEPS_SRC))
 EXT_DEPS_DEPS = $(patsubst %.c, %.d, $(EXT_DEPS_SRC))
 
+RAND_OBJECTS = src/external_deps/rand.o
+
 src/external_deps/%.d: src/external_deps/%.c
 	$(CC) $(LIB_CFLAGS) -MM $< -MF $@
 
