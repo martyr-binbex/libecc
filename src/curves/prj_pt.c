@@ -145,6 +145,8 @@ int prj_pt_is_on_curve(prj_pt_src_t in,  int *on_curve)
 {
 	int ret, iszero, _on_curve;
 
+	printf("inside prj_pt_is_on_curve");
+
  	fp X, Y;
 	fp_src_t dummy_Z;
  	X.magic = Y.magic = WORD(0);
