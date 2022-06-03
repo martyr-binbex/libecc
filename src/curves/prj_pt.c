@@ -125,6 +125,8 @@ int prj_pt_zero(prj_pt_t out)
 {
 	int ret;
 
+	printf("inside prj_pt_zero");
+
 	ret = prj_pt_check_initialized(out); EG(ret, err);
 
 	ret = fp_zero(&(out->X)); EG(ret, err);
