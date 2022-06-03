@@ -125,7 +125,7 @@ int prj_pt_zero(prj_pt_t out)
 {
 	int ret;
 
-	printf("inside prj_pt_zero");
+	printf("inside prj_pt_zero\r\n");
 
 	ret = prj_pt_check_initialized(out); EG(ret, err);
 
@@ -147,7 +147,7 @@ int prj_pt_is_on_curve(prj_pt_src_t in,  int *on_curve)
 {
 	int ret, iszero, _on_curve;
 
-	printf("inside prj_pt_is_on_curve");
+	printf("inside prj_pt_is_on_curve\r\n");
 
  	fp X, Y;
 	fp_src_t dummy_Z;
@@ -156,13 +156,17 @@ int prj_pt_is_on_curve(prj_pt_src_t in,  int *on_curve)
 	ret = prj_pt_check_initialized(in); EG(ret, err);
 	MUST_HAVE((on_curve != NULL), ret, err);
 
+	printf("inside prj_pt_is_on_curve 2\r\n");
  	ret = fp_init(&X, in->X.ctx); EG(ret, err);
 	ret = fp_init(&Y, in->X.ctx); EG(ret, err);
 
+	printf("inside prj_pt_is_on_curve 3\r\n");
 	/* NOTE: use Y as a temporary dummy random variable for
 	 * dummy operations when whe deal with the point at infinity.
 	 */
 	ret = nn_get_random_mod(&(Y.fp_val), &((in->X.ctx)->p)); EG(ret, err);
+
+	printf("inside prj_pt_is_on_curve 4\r\n");
 
 	ret = fp_iszero(&(in->Z), &iszero); EG(ret, err);
 
